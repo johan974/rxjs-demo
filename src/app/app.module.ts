@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BasisComponent } from './basis/basis.component';
+import { RxStreamComponent } from './rx-stream/rx-stream.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasisComponent
+    BasisComponent,
+    RxStreamComponent
   ],
   imports: [
     BrowserModule
