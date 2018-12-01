@@ -1,16 +1,17 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/scan';
 
 @Component({
   selector: 'app-basis',
-  templateUrl: './basis.component.html',
-  styleUrls: ['./basis.component.css']
+  templateUrl: './basis.component.html'
 })
 export class BasisComponent implements OnInit {
   clicked = 0;
   result = 'clicked ' + this.clicked + ' times';
   result2 = 'clicked ' + this.clicked + ' times';
+  mycount = 0;
 
   constructor() { }
 
@@ -29,5 +30,10 @@ export class BasisComponent implements OnInit {
       this.result2 = 'clicked2 ' + this.clicked + ' times';
       console.log('Clicked2!');
     });
+
   }
+
+
+
+
 }
