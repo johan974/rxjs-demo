@@ -11,6 +11,7 @@ export class BasisComponent implements OnInit {
   clicked = 0;
   result = 'clicked ' + this.clicked + ' times';
   result2 = 'clicked ' + this.clicked + ' times';
+  scanTotal = 0;
   mycount = 0;
 
   constructor() { }
@@ -31,6 +32,23 @@ export class BasisComponent implements OnInit {
       console.log('Clicked2!');
     });
 
+    // 3- Scan
+    let that = this;
+    const clicks = Observable.fromEvent(document, 'click');
+    clicks
+      .map(e => Math.random() * 100 )
+      .scan((totalScore, current) => totalScore + current)
+      .subscribe(data => {
+        that.scanTotal = data;
+        console.log( 'click event after scan');
+      });
+
+    // 4 - switchmap
+    // const clicksMap = Observable.fromEvent(document, 'click');
+    // clicksMap.switchMap(click => {
+    //   return Rx.Observable.interval(500)
+    // })
+    //   .subscribe(i => print(i))
   }
 
 
